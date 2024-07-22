@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background: url('https://img.freepik.com/free-photo/harvesting-wheat-tranquil-meadow-sunset-generated-by-ai_24640-80628.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Reduce brightness */
+            z-index: -1;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-top: 20px;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+            font-family: 'Georgia', serif;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-family: 'Georgia', serif;
+            font-size: 2em;
+        }
+
+        img {
+            margin-top: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        a, button {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        a:hover, button:hover {
+            background-color: #0c4205;
+        }
+        .tip {
+            background-color: rgba(255, 0, 0, 0.7); /* Green background with opacity */
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            font-style: italic;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            text-align: center;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <img src="{{ image_url }}" alt="Uploaded Image">
+    <h2 class="tip"><i>Prediction: {{ prediction }}</i></h2>
+    <div class="button-group">
+        <a href="{{ url_for('index') }}">Classify Another Image</a>
+        <a href="{{ url_for('tips', disease=prediction) }}">Recovery Tips</a>
+    </div>
+</body>
+</html>
+ 

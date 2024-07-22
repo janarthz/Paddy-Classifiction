@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paddy Disease Classifier</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background: url('https://img.freepik.com/free-photo/harvesting-wheat-tranquil-meadow-sunset-generated-by-ai_24640-80628.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Reduce brightness */
+            z-index: -1;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-top: 20px;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+            font-family: 'Georgia', serif;
+            font-size: 2.5em;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        input[type="file"]:hover {
+            border-color: #ffffff;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #084f18;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paddy Disease Prediction - <i>Paddy Doctor</i></h1>
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Upload and Classify</button>
+    </form>
+</body>
+</html>
